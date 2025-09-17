@@ -12,8 +12,26 @@ Thumbs.db
 # Archivos de editor
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# No subir archivos de instrucciones locales
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archivos de documentación local (no para producción)
 INSTRUCCIONES_DESPLIEGUE.md
 FORMULARIOS_GUIA.md
 Readme.txt
+
+# Archivos de respaldo
+*.bak
+*.backup
+
+# Archivos de desarrollo Node.js (si se usan en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
