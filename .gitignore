@@ -1,5 +1,6 @@
 # Archivos de desarrollo local
 logs/
+forms/
 *.log
 .DS_Store
 Thumbs.db
@@ -25,6 +26,7 @@ Desktop.ini
 INSTRUCCIONES_DESPLIEGUE.md
 FORMULARIOS_GUIA.md
 Readme.txt
+README.md
 
 # Archivos de respaldo
 *.bak
