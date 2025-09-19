@@ -10,6 +10,20 @@
   "use strict";
 
   /**
+   * Función auxiliar para debug del menú móvil
+   */
+  function debugMobileNav() {
+    console.log('Verificando menú móvil...');
+    const btn = document.querySelector('.mobile-nav-toggle');
+    const navmenu = document.querySelector('#navmenu');
+    console.log('Botón encontrado:', !!btn);
+    console.log('Navmenu encontrado:', !!navmenu);
+    if (btn) {
+      console.log('Clases del botón:', btn.className);
+    }
+  }
+
+  /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {
@@ -23,28 +37,74 @@
   window.addEventListener('load', toggleScrolled);
 
   /**
-   * Mobile nav toggle
+   * Mobile nav toggle - Versión mejorada
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+  function initMobileNav() {
+    const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+    
+    function mobileNavToogle(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      
+      const body = document.querySelector('body');
+      const navmenu = document.querySelector('#navmenu');
+      
+      if (body && navmenu) {
+        body.classList.toggle('mobile-nav-active');
+        
+        if (mobileNavToggleBtn) {
+          mobileNavToggleBtn.classList.toggle('bi-list');
+          mobileNavToggleBtn.classList.toggle('bi-x');
+        }
+        
+        console.log('Menú móvil toggled:', body.classList.contains('mobile-nav-active'));
+      }
+    }
+    
+    if (mobileNavToggleBtn) {
+      mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+      mobileNavToggleBtn.addEventListener('touchstart', mobileNavToogle, { passive: false });
+      console.log('Event listeners añadidos al botón del menú móvil');
+    } else {
+      console.warn('No se encontró el botón del menú móvil (.mobile-nav-toggle)');
+    }
+    
+    return mobileNavToogle;
   }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  
+  // Inicializar cuando el DOM esté listo
+  let mobileNavToogle;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      mobileNavToogle = initMobileNav();
+      debugMobileNav();
+    });
+  } else {
+    mobileNavToogle = initMobileNav();
+    debugMobileNav();
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+  function setupNavMenuLinks() {
+    document.querySelectorAll('#navmenu a').forEach(navmenu => {
+      navmenu.addEventListener('click', () => {
+        if (document.querySelector('.mobile-nav-active')) {
+          mobileNavToogle();
+        }
+      });
     });
-
-  });
+  }
+  
+  // Ejecutar inmediatamente si el DOM ya está listo, sino esperar
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNavMenuLinks);
+  } else {
+    setupNavMenuLinks();
+  }
 
   /**
    * Toggle mobile nav dropdowns

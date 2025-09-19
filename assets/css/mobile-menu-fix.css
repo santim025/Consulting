@@ -1,0 +1,225 @@
+/* Menú móvil con estilos de Asoafil SAS */
+
+/* Ocultar botón del header en móvil */
+@media (max-width: 768px) {
+  .header .btn-getstarted {
+    display: none !important;
+  }
+}
+
+/* Ocultar opción de menú cuando el botón del header está visible */
+@media (min-width: 769px) {
+  .navmenu .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Mostrar y estilizar el CTA en el menú móvil solo cuando el botón del header está oculto */
+@media (max-width: 768px) {
+  .mobile-nav-active .navmenu .mobile-only {
+    display: block !important;
+    order: -1 !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px solid rgba(49, 130, 206, 0.1) !important;
+  }
+
+  .mobile-nav-active .navmenu .cta-mobile {
+    background: linear-gradient(135deg, #3182ce, #2b77cb) !important; /* Color corporativo */
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 18px 25px !important;
+    margin: 0 15px 15px 15px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    box-shadow: 0 6px 20px rgba(49, 130, 206, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    text-transform: none !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  .mobile-nav-active .navmenu .cta-mobile:hover {
+    background: linear-gradient(135deg, #2b77cb, #1a365d) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(49, 130, 206, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .mobile-nav-active .navmenu .cta-mobile i {
+    font-size: 18px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Ocultar menú por defecto en móvil */
+@media (max-width: 1199px) {
+  /* Reset para asegurar centrado */
+  .mobile-nav-active {
+    position: static !important;
+  }
+  .navmenu ul {
+    display: none !important;
+  }
+
+  /* Cuando el menú está activo */
+  .mobile-nav-active .navmenu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: rgba(26, 54, 93, 0.95) !important; /* Color de fondo del header */
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    backdrop-filter: blur(10px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-nav-active .navmenu ul {
+    display: block !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 50px rgba(26, 54, 93, 0.3) !important;
+    padding: 35px 0 !important;
+    margin: 0 auto !important;
+    list-style: none !important;
+    position: static !important;
+    z-index: 999999 !important;
+    animation: menuSlide 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    border: 2px solid rgba(49, 130, 206, 0.1) !important;
+    box-sizing: border-box !important;
+    /* Centrado perfecto */
+    transform: translateX(0) translateY(0) !important;
+  }
+
+  @keyframes menuSlide {
+    from {
+      transform: scale(0.85) translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .mobile-nav-active .navmenu li {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    position: relative !important;
+    z-index: 999999 !important;
+  }
+
+  .mobile-nav-active .navmenu a {
+    display: block !important;
+    padding: 18px 35px !important;
+    color: #1a365d !important; /* --heading-color */
+    text-decoration: none !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    border-bottom: 1px solid rgba(49, 130, 206, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    background: transparent !important;
+    position: relative !important;
+    z-index: 999999 !important;
+    font-family: 'Roboto', sans-serif !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  .mobile-nav-active .navmenu a:hover {
+    background: linear-gradient(135deg, #3182ce, #2b77cb) !important; /* --accent-color gradient */
+    color: white !important;
+    padding-left: 45px !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 4px 15px rgba(49, 130, 206, 0.2) !important;
+  }
+
+  .mobile-nav-active .navmenu li:last-child a {
+    border-bottom: none !important;
+  }
+
+  .mobile-nav-active .navmenu li:first-child a {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+  }
+
+  .mobile-nav-active .navmenu li:last-child a {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+
+  /* Botón de cerrar estilizado */
+  .mobile-nav-active .mobile-nav-toggle {
+    position: fixed !important;
+    top: 25px !important;
+    right: 25px !important;
+    color: white !important;
+    font-size: 28px !important;
+    z-index: 9999999 !important;
+    background: rgba(49, 130, 206, 0.9) !important; /* --accent-color */
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(255,255,255,0.2) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 25px rgba(49, 130, 206, 0.3) !important;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle:hover {
+    background: rgba(49, 130, 206, 1) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 12px 35px rgba(49, 130, 206, 0.4) !important;
+  }
+
+  /* Añadir un pequeño título al menú */
+  .mobile-nav-active .navmenu ul::before {
+    content: "Menú de Navegación" !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #3182ce !important; /* --accent-color */
+    padding: 0 0 15px 0 !important;
+    margin-bottom: 10px !important;
+    border-bottom: 2px solid rgba(49, 130, 206, 0.1) !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Centrado específico para pantallas muy pequeñas */
+  @media (max-height: 600px) {
+    .mobile-nav-active .navmenu {
+      align-items: flex-start !important;
+      padding-top: 60px !important;
+    }
+  }
+
+  /* Centrado para pantallas muy anchas en móvil */
+  @media (max-width: 480px) {
+    .mobile-nav-active .navmenu ul {
+      width: 95% !important;
+      max-width: 350px !important;
+    }
+  }
+}
