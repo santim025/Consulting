@@ -1,10 +1,16 @@
 /* Menú móvil con estilos de Asoafil SAS */
 
-/* Ocultar botón del header en móvil */
-@media (max-width: 768px) {
+/* Ocultar botón del header cuando aparece el menú hamburguesa */
+@media (max-width: 1199px) {
   .header .btn-getstarted {
     display: none !important;
   }
+}
+
+/* Asegurar que el botón hamburguesa y el botón del header nunca coexistan */
+.mobile-nav-toggle:not(.d-none) ~ .btn-getstarted,
+.mobile-nav-toggle[style*="display: block"] ~ .btn-getstarted {
+  display: none !important;
 }
 
 /* Ocultar opción de menú cuando el botón del header está visible */
@@ -14,8 +20,8 @@
   }
 }
 
-/* Mostrar y estilizar el CTA en el menú móvil solo cuando el botón del header está oculto */
-@media (max-width: 768px) {
+/* Mostrar y estilizar el CTA en el menú móvil siempre que esté activo */
+@media (max-width: 1199px) {
   .mobile-nav-active .navmenu .mobile-only {
     display: block !important;
     order: -1 !important;
@@ -42,6 +48,7 @@
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     text-transform: none !important;
     letter-spacing: 0.3px !important;
+    width: calc(100% - 30px) !important;
   }
 
   .mobile-nav-active .navmenu .cta-mobile:hover {
@@ -186,26 +193,31 @@
     box-shadow: 0 8px 25px rgba(49, 130, 206, 0.3) !important;
   }
 
-  .mobile-nav-active .mobile-nav-toggle:hover {
-    background: rgba(49, 130, 206, 1) !important;
-    transform: scale(1.05) !important;
-    box-shadow: 0 12px 35px rgba(49, 130, 206, 0.4) !important;
+  /* Regla específica para asegurar que el CTA aparezca siempre cuando el menú esté activo */
+  .mobile-nav-active .mobile-only {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
-  /* Añadir un pequeño título al menú */
+  /* Forzar eliminación de cualquier contenido ::before en el menú */
   .mobile-nav-active .navmenu ul::before {
-    content: "Menú de Navegación" !important;
-    display: block !important;
-    text-align: center !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    color: #3182ce !important; /* --accent-color */
-    padding: 0 0 15px 0 !important;
-    margin-bottom: 10px !important;
-    border-bottom: 2px solid rgba(49, 130, 206, 0.1) !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
+    display: none !important;
+    content: none !important;
   }
+
+  /* Eliminar cualquier scroll horizontal */
+  .mobile-nav-active .navmenu ul {
+    overflow-x: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  .mobile-nav-active .navmenu a {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
 
   /* Centrado específico para pantallas muy pequeñas */
   @media (max-height: 600px) {
