@@ -1,46 +1,105 @@
-# Asoafil SAS
+# Asoafil SAS — Sitio Web Corporativo
 
-> Website corporativo oficial de Asoafil SAS — Firma de asesoría contable y tributaria en Bogotá, Colombia.
+Sitio web oficial de **Asoafil SAS** — Asesoría contable, SG-SST, afiliaciones y servicios empresariales.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+## Stack
 
-## 📋 Descripción
+- [Next.js 16](https://nextjs.org) (App Router, Static Export)
+- [React 19](https://react.dev) + [TypeScript 5](https://www.typescriptlang.org)
+- [Tailwind CSS 4](https://tailwindcss.com) (design tokens corporativos)
+- [Framer Motion 12](https://www.framer.com/motion/) (animaciones)
+- [Embla Carousel 8](https://www.embla-carousel.com) (carrusel de testimonios)
+- [lucide-react](https://lucide.dev) (íconos)
+- Tipografía: **Plus Jakarta Sans** vía `next/font`
 
-Sitio web corporativo para **Asoafil SAS**, firma colombiana especializada en asesoría contable, tributaria y consultoría empresarial. Ubicados en Bogotá D.C., ofrecen servicios profesionales para empresas y personas naturales.
+## Requisitos
 
-## 🚀 Características
+- Node.js 22+
+- pnpm 10+
 
-- Diseño responsive con Bootstrap 5
-- Optimizado para SEO
-- Formularios de contacto funcionales
-- Información completa de servicios
-- Integración con WhatsApp para atención directa
+## Desarrollo local
 
-## 💼 Servicios
+```bash
+pnpm install
+pnpm dev
+```
 
-| Servicio | Descripción |
-|----------|-------------|
-| Asesoría Contable | Contabilidad integral para empresas |
-| Asesoría Tributaria | Planificación y cumplimiento fiscal |
-| Consultoría Empresarial | Mejora de procesos y eficiencia |
-| Capacitación Contable | Formación profesional continua |
+Abre [http://localhost:3000](http://localhost:3000).
 
-## 🛠️ Tecnologías
+## Scripts
 
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Framework**: Bootstrap 5
-- **Hosting**: GitHub Pages
-- **Dominio**: [asoafil.com](http://asoafil.com)
+| Comando | Descripción |
+| --- | --- |
+| `pnpm dev` | Servidor de desarrollo con HMR |
+| `pnpm build` | Build de producción + static export en `out/` |
+| `pnpm start` | Servidor de producción (no aplica con static export) |
+| `pnpm lint` | Análisis de código con ESLint |
 
-## 📱 Contacto
+## Estructura
 
-- **WhatsApp**: +57 311 840 7318
-- **Email**: info@asoafil.com
-- **Ubicación**: Bogotá D.C., Colombia
+```
+src/
+├── app/                    # Rutas Next.js (App Router)
+│   ├── layout.tsx          # Layout raíz + metadata + JSON-LD
+│   ├── page.tsx            # Home (Hero, Servicios, Proceso, etc.)
+│   ├── sitemap.ts          # Sitemap.xml generado
+│   ├── robots.ts           # Robots.txt generado
+│   └── globals.css         # Design tokens (colores, tipografía, sombras)
+├── components/
+│   ├── ui/                 # Button, Container, SectionHeading
+│   ├── sections/           # Cada sección de la home
+│   ├── site-header.tsx     # Header sticky con menú móvil
+│   ├── site-footer.tsx     # Footer corporativo
+│   ├── whatsapp-fab.tsx    # Botón flotante WhatsApp
+│   └── animated-counter.tsx
+└── lib/
+    ├── site-config.ts      # Contacto, WhatsApp, nav links, stats
+    └── utils.ts            # Utilidad cn() para clases
+```
+
+## Deploy
+
+El sitio se compila como **HTML/JS/CSS estático** (`output: "export"`) y se publica
+automáticamente en **GitHub Pages** con el workflow `.github/workflows/deploy.yml`
+en cada push a `main` o `master`.
+
+Para hacer build manual:
+
+```bash
+pnpm build
+```
+
+El sitio listo para publicar queda en la carpeta `out/`.
+
+## Contacto
+
+- **WhatsApp**: [+57 311 840 7318](https://wa.me/573118407318)
+- **Correo**: sandramr025@yahoo.es
+- **Web**: [asoafil.com](https://asoafil.com)
+
+## 🖼️ Capturas de Pantalla
+
+### Inicio
+![Inicio](screenshots/01_Inicio.png)
+
+### Nosotros
+![Nosotros](screenshots/02_Nosotros.png)
+
+### Servicios
+![Servicios](screenshots/03_Servicios.png)
+
+### Productos
+![Productos](screenshots/04_Productos.png)
+
+### Contacto
+![Contacto](screenshots/05_Contacto.png)
+
+### Login
+![Login](screenshots/06_Login.png)
+
+### Dashboard
+![Dashboard](screenshots/07_Dashboard.png)
 
 ---
 
-*© 2024 Asoafil SAS. Todos los derechos reservados.*
+© Asoafil SAS · Todos los derechos reservados.
