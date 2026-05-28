@@ -83,10 +83,10 @@ El sitio listo para publicar queda en la carpeta `out/`.
 ![Inicio](screenshots/01_Inicio.png)
 
 ### Nosotros
-![Nosotros](screenshots/02_Nosotros.png)
+![Nosotros](screenshots/03_Nosotros.png)
 
 ### Servicios
-![Servicios](screenshots/03_Servicios.png)
+![Servicios](screenshots/02_Servicios.png)
 
 ### Productos
 ![Productos](screenshots/04_Productos.png)
