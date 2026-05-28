@@ -77,6 +77,29 @@ El sitio listo para publicar queda en la carpeta `out/`.
 - **Correo**: sandramr025@yahoo.es
 - **Web**: [asoafil.com](https://asoafil.com)
 
+## 🖼️ Capturas de Pantalla
+
+### Inicio
+![Inicio](screenshots/01_Inicio.png)
+
+### Nosotros
+![Nosotros](screenshots/02_Nosotros.png)
+
+### Servicios
+![Servicios](screenshots/03_Servicios.png)
+
+### Productos
+![Productos](screenshots/04_Productos.png)
+
+### Contacto
+![Contacto](screenshots/05_Contacto.png)
+
+### Login
+![Login](screenshots/06_Login.png)
+
+### Dashboard
+![Dashboard](screenshots/07_Dashboard.png)
+
 ---
 
 © Asoafil SAS · Todos los derechos reservados.
